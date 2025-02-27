@@ -1,109 +1,105 @@
-# class Human:
-#     def __init__(self, name = "Human"):
+# # завдання 1
+# class Car:
+#     def __init__(self, make: str, model: str, year: int):
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#     def get_info(self) -> str:
+#         return f"{self.year} {self.model} {self.make}"
+#     def __str__(self):
+#         return self.get_info()
+# car1 =Car("Ford", "Mustang", 2023)
+# print(car1)
+# # завдання 2
+# import random
+# class Employee:
+#     def __init__(self, name, age, position, salary):
 #         self.name = name
-# class Auto:
-#     def __init__(self, brand):
-#         self.brand = brand
-#         self.passanger = []
-#     def add_passanger(self, *args): #реєструє пасжирів авто
-#         for passanger in args:
-#             self.passanger.append(passanger)
-#     def print_passenger_names(self):
-#         if self.passanger != []:
-#             print("Names of {self.brand} passanger: ")
-#             for passanger in self.passanger:
-#                 print(passanger.name)
-#         else:
-#             print("There are no passengers in {self.brand} ")
-# nick = Human("Nick")
-# kate = Human("Kate")
-# car = Auto("Audi")
+#         self.age = age
+#         self.position = position
+#         self.salary = salary
 #
-# car.add_passanger(nick, kate)
-# car.print_passenger_names()
+#     def get_info(self):
+#         return f"{self.name}, {self.age} years old, {self.position}, {self.salary} UAH"
+#
+# class Department:
+#     def __init__(self, name):
+#         self.name = name
+#         self.employees = []
+#
+#     def add_employee(self, employee):
+#         self.employees.append(employee)
+#
+#     def remove_random_employee(self):
+#         if self.employees:
+#             removed = random.choice(self.employees)
+#             self.employees.remove(removed)
+#             print(f"Removed employee: {removed.get_info()}")
+#
+#     def add_random_employee(self):
+#         random_names = ["Alex", "Natalie", "Dmitry", "Irene", "Andrew"]
+#         random_positions = ["Manager", "Developer", "Analyst", "Designer"]
+#         new_employee = Employee(
+#             random.choice(random_names),
+#             random.randint(22, 50),
+#             random.choice(random_positions),
+#             random.randint(20000, 50000)
+#         )
+#         self.add_employee(new_employee)
+#         print(f"Added employee: {new_employee.get_info()}")
+#
+#     def get_total_salary(self):
+#         return sum(emp.salary for emp in self.employees)
+#
+#     def list_employees(self):
+#         return [emp.get_info() for emp in self.employees]
+#
+# dept = Department("IT")
+#
+# dept.add_employee(Employee("John", 30, "Developer", 30000))
+# dept.add_employee(Employee("Maria", 25, "Tester", 25000))
+# dept.add_employee(Employee("Oleg", 35, "Database Administrator", 28000))
+#
+# print("\nEmployees in the IT department:")
+# for info in dept.list_employees():
+#     print(info)
+#
+# dept.remove_random_employee()
+#
+# dept.add_random_employee()
+#
+# print("\nUpdated list of employees:")
+# for info in dept.list_employees():
+#     print(info)
+#
+# print("\nTotal department salary:", dept.get_total_salary(), "UAH")
 
+# # завдання 3
+# class Device:
+#     def turn_on(self):
+#         return "Device is turned on"
+#     def turn_off(self):
+#         return "Device is turned off"
+# class Smartphone(Device):
+#     def call(self, number):
+#         return f"Call on {number}"
+# class Laptop(Device):
+#     def open(self):
+#         return "Opened development enviroment"
+# smartphone = Smartphone()
+# print(smartphone.turn_on())
+# print(smartphone.call("+380982528462"))
+# laptop = Laptop()
+# print(laptop.turn_on())
+# print(laptop.open())
 
-
+# завдання 4
 import random
 
-class Human:
-    def __int__(self, name = "Human", job = None, home = None, car = None):
-        self.name = name
-        self.money = 100
-        self.gladness = 50 #радість
-        self.satiety = 50 #ситість
-        self.job = job
-        self.car = car
-        self.home = home
-
-    def get_home(self):
-        self.home = House()
-    def get_car(self):
-        self.car = Auto(brands_of_car)
-    def get_job(self):
-        if self.car.drive():
-            ...
-        else:
-            self.to_repair()
-            return
-        self.job = job(job_list)
-    def eat(self):
-        ...
-    def work(self):
-        ...
-    def shopping(self, manage):
-        ...
-    def chill(self):
-        ...
-    def clean_home(self):
-        ...
-    def to_repair(self):
-        ...
-
-    def days_indexes(self, date):
-        ...
-    def is_alive(self):
-        ...
-    def live(self, day):
-        ...
-
-class Auto:
-    def __int__(self, brand_list):
-        self.brand = random.choice(list (brand_list))
-        self.fuel = brand_list[self.brand]["fuel"] #пальне
-        self.strength = brand_list[self.brand]["strength"] #сила автівки
-        self.consumption = brand_list[self.brand]["consumption"] #споживання автівки
-
-    def drive(self):
-        if self.strength > 0 and self.fuel>=self.consumption:
-            self.fuel-=self.consumtion
-            self.strength -=1
-            return True
-        else:
-            print("The car cannot move")
-            return False
-
-class House:
-    def __init__(self):
-        self.mess = 0 #безлад вдома
-        self.food = 0
-
-brands_of_car = {
-    "BMV":{"fuel": 100, "strength": 100, "comsuption": 6},
-    "Porshe":{"fuel": 150, "strength": 40, "comsuption": 10},
-    "Pagani":{"fuel": 100, "strength": 50, "comsuption": 8},
-    "Ferrari":{"fuel": 150, "strength": 200, "comsuption": 14}
-}
-
-job_list ={
-    "Jave developer": {"salary": 50, "gladness_less": 10},
-    "Python developer": {"salary": 40, "gladness_less": 3},
-    "C++ developer": {"salary": 45, "gladness_less": 25},
-    "Rust developer": {"salary": 70, "gladness_less": 1},
-}
-
-class job:
-    def __init__(self, job_list):
-        self.job = random.choice(list(job_list))
-        self.salary = job_list[self.job]["salary"] #зарплата
-        self.gladness_less = job_list[self.job]["gladness_less"] #втрата радості
+def random_letter_generator():
+    letters = "abcdefghijklmnopqrstuvwsyzABCDEFGHIGKLMNOPQRSTUVWXYZ"
+    while True:
+        yield random.choice(letters)
+gen = random_letter_generator()
+for i in range(1):
+    print(next(gen))
